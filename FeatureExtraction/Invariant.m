@@ -1,0 +1,12 @@
+function invariant=Invariant(imagename)
+    img=imread(imagename);
+    sl=size(img,1);
+    sm=size(img,2);
+    rimg=imresize(img,[sl sm]);
+    level=graythresh(img);
+    bimg=imbinarize(img,level);
+    limg=bwareafilt(bimg,1);
+    bound=bwconncomp(limg);
+    [x y]=ind2sub(1,bound.PixelIdxList{1});
+    invariant=feature_vec(limg);
+    invariant=invariant';

@@ -1,25 +1,42 @@
-img=imread('2150.tif');
-
+function feat=Texture(imagename)
+img=imread(imagename);
+feat=[];
 glcm=graycomatrix(img,'Offset',[0 1]);
 stats=graycoprops(glcm,'Contrast');
+feat(1)=stats.Contrast;
 stats=graycoprops(glcm,'Correlation');
+feat(2)=stats.Correlation;
 stats=graycoprops(glcm,'Homogeneity');
+feat(3)=stats.Homogeneity;
 stats=graycoprops(glcm,'Energy');
+feat(4)=stats.Energy;
 
 glcm=graycomatrix(img,'Offset',[-1 1]);
 stats=graycoprops(glcm,'Contrast');
+feat(5)=stats.Contrast;
 stats=graycoprops(glcm,'Correlation');
+feat(6)=stats.Correlation;
 stats=graycoprops(glcm,'Homogeneity');
+feat(7)=stats.Homogeneity;
 stats=graycoprops(glcm,'Energy');
+feat(8)=stats.Energy;
 
 glcm=graycomatrix(img,'Offset',[-1 0]);
 stats=graycoprops(glcm,'Contrast');
+feat(9)=stats.Contrast;
 stats=graycoprops(glcm,'Correlation');
+feat(10)=stats.Correlation;
 stats=graycoprops(glcm,'Homogeneity');
+feat(11)=stats.Homogeneity;
 stats=graycoprops(glcm,'Energy');
+feat(12)=stats.Energy;
 
 glcm=graycomatrix(img,'Offset',[-1 -1]);
 stats=graycoprops(glcm,'Contrast');
+feat(13)=stats.Contrast;
 stats=graycoprops(glcm,'Correlation');
+feat(14)=stats.Correlation;
 stats=graycoprops(glcm,'Homogeneity');
+feat(15)=stats.Homogeneity;
 stats=graycoprops(glcm,'Energy');
+feat(16)=stats.Energy;
